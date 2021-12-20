@@ -1,5 +1,20 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+
+.header{
+    background-color: rgb(179, 173, 121)
+}
+
+.cento{
+    width: calc(100%/10);
+    background-color: black;
+    border: 1px solid white;
+}
+.ottantuno{
+    width: calc(100%/9);
+    background-color: black;
+    border: 1px solid white;
+}
+.quarantanove{
+    width: calc(100%/7);
+    background-color: black;
+    border: 1px solid white;
 }
