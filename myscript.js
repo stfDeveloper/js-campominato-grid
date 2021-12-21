@@ -1,24 +1,32 @@
-let inizio = document.getElementById("inizia");
+// richiamo il tasto inizia
+let inizia = document.getElementById("inizia");
 
-inizio.addEventListener ("click", function(){
-    let difficolta = document.getElementById("userSelect").value;
-    let quadrati = document.getElementById("quadrati");
-    quadrati=this.innerHTML = "";
-
-    if(difficolta == "facile"){
-        for (let index = 0; index < 100; index++) {
-            quadrati.innerHTML += `<div class="cento item-${index}">${index}</div>`;
-        
+inizia.addEventListener("click", function () {
+  // richiamo la griglia
+  let grid = document.getElementById("grid");
+  // richiamo la difficoltà
+  let level = document.getElementById("userSelect").value;
+  grid.innerHTML = "";
+  // condizioni che seguo se la difficoltà è ...
+  if (level == 1) {
+    for (i = 1; i <= 100; i++) {
+      grid.innerHTML += `<div class="box boxFacile">${i}</div>`;
     }
-}else if(difficolta == "medio"){
-    for (let index2 = 0; index2 < 81; index2++) {
-        quadrati.innerHTML += `<div class="ottantuno item-${index2}">${index2}</div>`;
-        
+  } else if (level == 2) {
+    for (i = 1; i <= 81; i++) {
+      grid.innerHTML += `<div class="box boxMedio">${i}</div>`;
     }
-}else if (difficolta == "difficile"){
-    for (let index3 = 0; index3 < 49; index3++) {
-        quadrati.innerHTML += `<div class="quarantanove item-${index3}">${index3}</div>`;
-        
+  } else {
+    for (i = 1; i <= 49; i++) {
+      grid.innerHTML += `<div class="box boxDifficile">${i}</div>`;
     }
-}
-})
+  }
+  //aggiungo funzione del click sul box
+  let box = document.getElementsByClassName("box");
+  for (i = 0; i < box.length; i++) {
+    box[i].addEventListener("click", function () {
+      this.classList.add("safe");
+      console.log(this.innerHTML);
+    });
+  }
+});
